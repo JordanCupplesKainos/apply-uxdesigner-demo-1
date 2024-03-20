@@ -26,3 +26,14 @@ router.post ('/new/code', (req,res) => {
         res.redirect ('/new/experience')
         
         })
+
+        router.post ('/new/experience', (req,res) => {
+
+         if (req.body.new.yearsOfExperience == "None"){
+         res.redirect ('/new/not-eligible')
+
+         }else {
+            res.redirect ('/new/skills')
+            }
+            
+        })

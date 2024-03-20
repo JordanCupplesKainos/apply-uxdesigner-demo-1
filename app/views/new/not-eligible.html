@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = 'Not eligible' %}
+
+{% block beforeContent %}
+
+
+{{ govukBackLink({
+  text: "Back",
+  href:   "javascript:window.history .back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l"> {{pageName}}</h1>
+
+<p>You cannot apply for a UX Designer license. This is becuase you must have at least one years experiance. </p>
+
+  
+
+  </div>
+</div>
+
+{% endblock %}
+ 
