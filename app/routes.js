@@ -9,7 +9,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Add your routes here
 
 
-router.post ('/new/email-address', (req,res) => {
+router.post ('/new/email', (req,res) => {
 
 res.redirect ('/new/code')
 
