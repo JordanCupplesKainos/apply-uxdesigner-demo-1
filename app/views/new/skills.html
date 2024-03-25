@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = 'PLACEHOLDER' %}
+{% set pageName = 'What are your skills?' %}
 
 {% block beforeContent %}
 
@@ -20,6 +20,61 @@
 
 <form novalidate method="post">
 
+
+{%set otherInput %}  
+
+{{ govukInput({
+  id: "[new][otherObject]",
+  name: "[new][otherObject]",
+  label: {
+    text: "Other",
+    isPageHeading: true,
+    classes: "govuk-label--s"
+  },
+ 
+  value: data.new.otherObject
+}) }}
+
+
+{% endset %}  
+
+
+
+{{ govukCheckboxes({
+  name: "[new][skills]",
+  id: "[new][skills]",
+  fieldset: {
+    legend: {
+      text: pageName,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  values: data.new.skills,
+  items: [
+    {
+      value: "Interaction Design (IxD)",
+      text: "Interaction Design (IxD)"
+    },
+    {
+      value: "User Research (UR)",
+      text: "User Research (UR)"
+    },
+    {
+      value: "Information Architcture",
+      text: "Information Architcture"
+    },
+    {
+      value: "Other",
+      text: "Other",
+      conditional: {
+          html: otherInput }
+    }
+  ]
+}) }}
 
 
 {{ govukButton({
