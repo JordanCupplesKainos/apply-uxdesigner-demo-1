@@ -1,0 +1,162 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = 'Check details and send your application' %}
+
+{% block beforeContent %}
+
+
+{{ govukBackLink({
+  text: "Back",
+  href:   "javascript:window.history .back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l"> {{pageName}}</h1>
+
+
+
+{% set skillsObjects%}
+
+<ul class="govuk-list govuk-list--bullet">
+  {% for item in data.new.skills %}
+  <li>
+    {{item}}
+{% if item == 'Other' %}
+
+-{{data.new.otherObject}}
+
+{% endif %}
+
+  </li>
+  {% endfor %}
+</ul>
+
+
+
+{% endset%}
+
+
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Your email"
+      },
+      value: {
+        text: date.new.emailAddress
+      },
+      actions: {
+        items: [
+          {
+            href: "/new/email-address",
+            text: "Change",
+            visuallyHiddenText: "your email address"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Your name"
+      },
+      value: {
+        text: date.new.firstName + ' ' + data.new.lastName
+      },
+      actions: {
+        items: [
+          {
+            href: "/new/name",
+            text: "Change",
+            visuallyHiddenText: " Your name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "How many years of experiance do you have in UX Design?"
+      },
+      value: {
+        text: data.new.yearsOfExperience
+      },
+      actions: {
+        items: [
+          {
+            href: "/new/experiance",
+            text: "Change",
+            visuallyHiddenText: " the years of experiance you have in UX Design"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "What is the area of your expertise?"
+      },
+      value: {
+        text: data.new.expertise
+      },
+      actions: {
+        items: [
+          {
+            href: "/new/expertise",
+            text: "Change",
+            visuallyHiddenText: "the area of your expertise"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "What are your skills?"
+      },
+      value: {
+        html: skillsObjects
+      },
+      actions: {
+        items: [
+          {
+            href: "/new/skills",
+            text: "Change",
+            visuallyHiddenText: " your skills"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+<form novalidate method="post">
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+
+
+
+
+
+
+
+
+
+</form>
+
+  
+
+  </div>
+</div>
+
+{% endblock %}
+ 
