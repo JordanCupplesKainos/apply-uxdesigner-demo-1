@@ -56,7 +56,7 @@
       actions: {
         items: [
           {
-            href: "/new/email",
+            href: "/new/email?returnUrl=/new/check",
             text: "Change",
             visuallyHiddenText: "your email address"
           }
@@ -73,7 +73,7 @@
       actions: {
         items: [
           {
-            href: "/new/name",
+            href: "/new/name?returnUrl=/new/check",
             text: "Change",
             visuallyHiddenText: " Your name"
           }
@@ -90,7 +90,7 @@
       actions: {
         items: [
           {
-            href: "/new/experiance",
+            href: "/new/experiance?returnUrl=/new/check",
             text: "Change",
             visuallyHiddenText: " the years of experiance you have in UX Design"
           }
@@ -107,7 +107,7 @@
       actions: {
         items: [
           {
-            href: "/new/expertise",
+            href: "/new/expertise?returnUrl=/new/check",
             text: "Change",
             visuallyHiddenText: "the area of your expertise"
           }
@@ -124,7 +124,7 @@
       actions: {
         items: [
           {
-            href: "/new/skills",
+            href: "/new/skills?returnUrl=/new/check",
             text: "Change",
             visuallyHiddenText: " your skills"
           }
@@ -134,12 +134,13 @@
   ]
 }) }}
 
+<p>By submitting this application you are confirming, that to the best of your knowledge, the details are correct.  </p>
 
 <form novalidate method="post">
 
 
 {{ govukButton({
-  text: "Continue"
+  text: "Accept and send application"
 }) }}
 
 
